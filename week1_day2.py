@@ -17,4 +17,3 @@ def main():
     
     print(factorial(5))
     
-main()
