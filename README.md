@@ -10,3 +10,8 @@ day 2 :  Python's core data types and control flow
     using list comprihension in control flow satatements(if/elif/else, etc..).
     writing well defined functions.
     defining a class as a data record with simple functions.
+
+day 3: NumPy: Numerical Computing
+    using numpy library to do basic operations.
+    creating, indexing and slicing.
+    slicing and manipulating arrays. 
