@@ -15,3 +15,8 @@ day 3: NumPy: Numerical Computing
     using numpy library to do basic operations.
     creating, indexing and slicing.
     slicing and manipulating arrays. 
+
+day 4: Pandas: Tabular Data
+    Loading a real dataset into a DataFrame and inspecting its structure
+    Selecting columns and filtering rows by condition
+    Cleaning missing values and duplicates, and aggregating data with groupby
