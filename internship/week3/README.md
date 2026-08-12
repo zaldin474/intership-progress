@@ -1,6 +1,6 @@
 # Week 3 — Machine Learning with Scikit-Learn
 
-Transition from statistics/EDA into applied machine learning with scikit-learn, starting with the standard model workflow and a first regression model.
+Transition from statistics/EDA into applied machine learning with scikit-learn: the standard model workflow, regression, classification, comparing model types, and a full end-to-end mini-project.
 
 | Day | Topic | Highlights |
 |---|---|---|
