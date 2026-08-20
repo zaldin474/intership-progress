@@ -8,6 +8,8 @@ The main goal is to explore the data, prepare it for modeling, compare supervise
 
 The project is notebook based and does not include a web application or API.
 
+For the detailed project approach, supervised/unsupervised methodology, development history, decisions, challenges, and conclusions, see [`Approach.md`](Approach.md).
+
 ## Dataset
 
 The dataset contains 50,000 rows and 21 original columns.
@@ -43,6 +45,7 @@ project1/
 │   └── results/
 │
 ├── README.md
+├── Approach.md
 └── requirements.txt
 ```
 
@@ -132,6 +135,24 @@ The notebook compares:
 
 The preprocessing is performed inside `ColumnTransformer` and `Pipeline`, so scaling and one-hot encoding are fitted only on the training data during cross-validation.
 
+
+### 05 - Unsupervised Learning
+
+The unsupervised-learning notebook removes `Heart_Disease` from the clustering inputs and investigates whether patient records naturally form meaningful groups.
+
+It includes:
+
+- PCA dimensionality reduction
+- K-Means clustering and cluster profiling
+- DBSCAN with sampled hyperparameter exploration
+- sampled Agglomerative Clustering and dendrogram analysis
+- BIRCH on the full dataset
+- t-SNE visualization
+- Isolation Forest anomaly detection
+- comparison of supervised predictability with unsupervised clusterability
+
+The main finding is that natural clusters overlap substantially and are driven more by lifestyle-category patterns than by clearly separated heart-disease risk groups.
+
 ## Note About the Perfect Tree-Based Scores
 
 Random Forest and Decision Tree models can reach an F1 score of 1.0 on this dataset.
@@ -160,6 +181,7 @@ This suggests that the synthetic target is strongly rule-based and can be recons
 02_eda.ipynb
 03_supervised_learning.ipynb
 04_feature_engineering_pipeline.ipynb
+05_unsupervised_learning.ipynb
 ```
 
 The notebooks use a relative path to the dataset:
