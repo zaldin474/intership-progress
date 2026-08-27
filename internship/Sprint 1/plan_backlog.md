@@ -105,31 +105,31 @@ The baseline model must be completed before the neural network so that every lat
 
 | ID | Task | Estimated Effort | Priority | Status |
 |---|---|---:|---|---|
-| S1-01 | Set up GitHub repository and project structure | 1 hr | High | To Do |
-| S1-02 | Finalize and document the heart disease dataset | 1 hr | High | To Do |
-| S1-03 | Inspect dataset structure and data types | 1 hr | High | To Do |
-| S1-04 | Check missing values, duplicates, and data quality issues | 1 hr | High | To Do |
-| S1-05 | Perform exploratory data analysis | 3 hrs | High | To Do |
-| S1-06 | Prepare features and target variable | 2 hrs | High | To Do |
-| S1-07 | Encode categorical variables, impute missing values, and scale numerical features | 2 hrs | High | To Do |
-| S1-08 | Create train/validation/test split | 1 hr | High | To Do |
-| S1-09 | Train Logistic Regression baseline | 2 hrs | High | To Do |
-| S1-10 | Evaluate and record baseline metrics | 1 hr | High | To Do |
-| S1-11 | Plot and study ReLU, sigmoid, and tanh activation functions | 2 hrs | Medium | To Do |
-| S1-12 | Select and justify output activation and loss function | 1 hr | High | To Do |
-| S1-13 | Perform a small forward-pass experiment | 2 hrs | Medium | To Do |
-| S1-14 | Document the neural-network training loop | 1 hr | Medium | To Do |
-| S1-15 | Run learning-rate experiments and compare loss curves | 2 hrs | Medium | To Do |
-| S1-16 | Open mid-sprint pull request for mentor review | 1 hr | High | To Do |
-| S1-17 | Build the first TensorFlow/Keras neural network | 3 hrs | High | To Do |
-| S1-18 | Train and evaluate the neural network | 2 hrs | High | To Do |
-| S1-19 | Plot training and validation loss/accuracy curves | 1 hr | High | To Do |
-| S1-20 | Add dropout and/or batch normalization | 2 hrs | Medium | To Do |
-| S1-21 | Tune selected neural-network hyperparameters | 2 hrs | Medium | To Do |
-| S1-22 | Add EarlyStopping and preserve the best weights | 1 hr | Medium | To Do |
-| S1-23 | Compare baseline and neural-network metrics | 1 hr | High | To Do |
-| S1-24 | Prepare Sprint Review evidence | 1 hr | High | To Do |
-| S1-25 | Complete Sprint Retrospective | 1 hr | High | To Do |
+| S1-01 | Set up GitHub repository and project structure | 1 hr | High | Partial / Verify GitHub |
+| S1-02 | Finalize and document the heart disease dataset | 1 hr | High | Done |
+| S1-03 | Inspect dataset structure and data types | 1 hr | High | Done |
+| S1-04 | Check missing values, duplicates, and data quality issues | 1 hr | High | Done |
+| S1-05 | Perform exploratory data analysis | 3 hrs | High | Done |
+| S1-06 | Prepare features and target variable | 2 hrs | High | Done |
+| S1-07 | Encode categorical variables, impute missing values, and scale numerical features | 2 hrs | High | Needs Fix |
+| S1-08 | Create train/validation/test split | 1 hr | High | Done |
+| S1-09 | Train Logistic Regression baseline | 2 hrs | High | Done |
+| S1-10 | Evaluate and record baseline metrics | 1 hr | High | Partial |
+| S1-11 | Plot and study ReLU, sigmoid, and tanh activation functions | 2 hrs | Medium | Done |
+| S1-12 | Select and justify output activation and loss function | 1 hr | High | Done |
+| S1-13 | Perform a small forward-pass experiment | 2 hrs | Medium | Done |
+| S1-14 | Document the neural-network training loop | 1 hr | Medium | Done |
+| S1-15 | Run learning-rate experiments and compare loss curves | 2 hrs | Medium | Done |
+| S1-16 | Open mid-sprint pull request for mentor review | 1 hr | High | Verify PR |
+| S1-17 | Build the first TensorFlow/Keras neural network | 3 hrs | High | Done |
+| S1-18 | Train and evaluate the neural network | 2 hrs | High | Done |
+| S1-19 | Plot training and validation loss/accuracy curves | 1 hr | High | Done |
+| S1-20 | Add dropout and/or batch normalization | 2 hrs | Medium | Done |
+| S1-21 | Tune selected neural-network hyperparameters | 2 hrs | Medium | Done |
+| S1-22 | Add EarlyStopping and preserve the best weights | 1 hr | Medium | Done |
+| S1-23 | Compare baseline and neural-network metrics | 1 hr | High | Done |
+| S1-24 | Prepare Sprint Review evidence | 1 hr | High | Done after final summary |
+| S1-25 | Complete Sprint Retrospective | 1 hr | High | Done after retrospective |
 
 ---
 
@@ -598,3 +598,64 @@ Before the Sprint Review, prepare:
 **Baseline score:** TBD after Day 1 training
 
 All later neural-network results must be compared against this baseline.
+
+---
+
+## 13. Sprint 1 Completion Record
+
+### Completed evidence found in the sprint folder
+
+- Dataset documented: 10,000 rows, 21 columns, target `Heart Disease Status`.
+- Missing values and duplicates inspected.
+- Brief EDA completed, including target distribution, numerical distributions, box plots, categorical comparisons, and numerical correlation heatmap.
+- Logistic Regression baseline completed.
+- Original Logistic Regression test result: accuracy **0.800**, macro F1 **0.444**, positive-class recall **0.000**.
+- Balanced Logistic Regression test result: accuracy **0.504**, macro F1 approximately **0.45**, positive-class recall **0.458**.
+- Activation-function plots, output activation/loss justification, and a small forward pass are documented.
+- Learning-rate / training-loop experiments are documented.
+- Keras basic neural network, regularized network, and class-weighted regularized network are implemented.
+- Regularized balanced NN test result: accuracy **0.5175**, macro F1 **0.4634**, positive-class precision **0.2073**, positive-class recall **0.5000**.
+- Day 5 tuning experiments were completed for learning rate, architecture, dropout, and batch size.
+- EarlyStopping and ModelCheckpoint were added.
+- Final tuned NN test result: accuracy **0.6850**, macro F1 **0.5012**, positive-class precision **0.2021**, positive-class recall **0.1950**.
+- Best-model artifact is present as `best_heart_disease_model.keras`.
+
+### Items to correct or verify before mentor review
+
+1. **Missing-value leakage:** missing numerical/categorical values are filled on the full dataframe before the train/test split. For strict acceptance criteria, fit imputation values from training data only, preferably inside the preprocessing pipeline.
+2. **Alcohol Consumption assumption:** missing `Alcohol Consumption` values are changed to `Zero`. Keep this only if the dataset documentation explicitly states that missing means no alcohol use; otherwise use `Unknown` or training-data mode imputation.
+3. **Baseline ROC-AUC:** the backlog requires ROC-AUC, but it is not recorded in the current baseline notebook. Add ROC-AUC before marking S1-10 fully complete.
+4. **EarlyStopping note:** `patience=5` means five consecutive epochs without validation-loss improvement, not 11. The run trained for 11 total epochs because the best validation loss occurred earlier and five later epochs failed to improve it.
+5. **Tuning criterion:** the notebook records minimum validation loss, maximum validation accuracy, and maximum validation recall independently; these maxima/minima can occur at different epochs. For a strict one-variable-at-a-time comparison, choose one selection criterion (preferably best validation loss, per the sprint lesson) and compare models at that epoch.
+6. **Checkpoint verification:** the checkpointed model is loaded successfully. For the final evidence, also evaluate `best_model` directly so the reported score is explicitly tied to the saved checkpoint.
+7. **GitHub / mentor workflow:** repository setup, feature branches, pull requests, mentor approval, and merge status cannot be verified from the provided folder and should be checked manually.
+
+### Sprint 1 model comparison
+
+| Model | Test Accuracy | Macro F1 | Yes Precision | Yes Recall | Main finding |
+|---|---:|---:|---:|---:|---|
+| Logistic Regression | 0.800 | 0.444 | 0.000 | 0.000 | Majority-class collapse; accuracy is misleading |
+| Balanced Logistic Regression | 0.504 | ~0.45 | 0.19 | 0.458 | Detects positives, but many false positives |
+| Regularized Neural Network | 0.798 | 0.444 | 0.000 | 0.000 | Regularization did not solve class imbalance |
+| Regularized + Balanced NN | 0.518 | 0.463 | 0.207 | 0.500 | Best positive recall among the neural-network runs |
+| Final Tuned NN | 0.685 | 0.501 | 0.202 | 0.195 | Best macro F1, but positive recall dropped compared with the balanced NN |
+
+### Sprint conclusion
+
+The sprint successfully established a classical baseline and progressed through basic, regularized, class-balanced, and tuned neural networks. The main challenge was the 80/20 class imbalance. Accuracy alone consistently overstated performance because models could obtain close to 80% accuracy by favoring the `No` class. Class weighting improved minority-class detection, while tuning improved the final macro F1 to approximately 0.501. However, the final tuned model traded away much of the positive recall achieved by the earlier balanced network, so model selection should depend on the project objective rather than accuracy alone.
+
+### Retrospective
+
+**What went well**
+
+- The sprint progressed from a reproducible classical baseline to multiple neural-network variants.
+- Training and validation curves were used to identify overfitting.
+- Precision, recall, F1-score, and confusion matrices exposed the class-imbalance problem that accuracy alone hid.
+- Class weighting, dropout, batch normalization, EarlyStopping, and ModelCheckpoint were all applied and compared.
+
+**What could improve**
+
+- Define one model-selection metric before tuning and use it consistently across experiments.
+- Record each experiment's configuration and result in one table as soon as it is run.
+- Evaluate the exact checkpointed model used for final reporting.
+
