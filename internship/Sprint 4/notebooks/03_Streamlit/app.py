@@ -18,18 +18,15 @@ from preprocessing import preprocess_text
 # ============================================
 BASE_DIR = Path(__file__).resolve().parent
 
+# the same models made by day 1 serializations
 MODEL_PATH = (
     BASE_DIR 
-    / ".."
-    / "01_Serialization"
     / "model"
     / "sentiment_model.joblib"
 ).resolve()
 
 TFIDF_PATH = (
     BASE_DIR 
-    / ".."
-    / "01_Serialization"
     / "model"
     / "tfidf_vectorizer.joblib"
 ).resolve()
