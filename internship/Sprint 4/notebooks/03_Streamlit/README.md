@@ -147,3 +147,25 @@ The application provides a simple interface where a user can enter a movie revie
 The app was tested with positive, negative, and empty inputs. Valid reviews produced the expected predictions, while empty input was handled correctly through validation.
 
 This completes the Day 3 Streamlit hands-on lab and prepares the project for public deployment in Day 4.
+
+
+
+
+# Day4 part
+
+## Public Deployment
+
+after doing the steps in H.O.L.,
+
+Step 1: Choose a hosting platform (Hugging Face Spaces recommended for Streamlit) and create the deployment repo/Space.
+● Step 2: Push the app, the serialized model, preprocessing files, and a correct requirements.txt.
+● Step 3: Confirm the build succeeds and obtain the public URL.
+● Step 4: Test the live app with multiple inputs and confirm predictions match the local version.
+● Step 5: Record the public URL in the project README.
+
+i went with *Render*,
+The app takes a movie review and predicts wether it has positive or negative sentiment.
+
+here is the URL:
+ https://imdb-review-sentiment-predictor.onrender.com/
+
