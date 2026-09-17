@@ -1,2 +1,11 @@
 .venv/
 .vscode/
+internship/Sprint 2/Data/
+internship/Sprint 3/Data/
+internship/Sprint 4/Data/
+
+internship/Sprint 4/03_Streamlit/__pycache__/
+
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
